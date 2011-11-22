@@ -63,7 +63,7 @@ class PrintAutomaticCommand extends Command
 
     public function toEplString()
     {
-        $result = $this->getName() . ',' . $this->getNumberOfLabels();
+        $result = $this->getName() . $this->getNumberOfLabels();
         if ($this->getNumberOfCopies() !== null) {
             $result .= ',' . $this->getNumberOfCopies();
         }
