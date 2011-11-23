@@ -7,7 +7,7 @@
 * The unauthorized use of this code outside the boundaries of
 * Farheap Solutions Inc. is prohibited.
 */
-namespace Epl\Command;
+namespace Epl\Command\Image;
 
 use Epl\CommandAbstract as Command;
 
@@ -31,9 +31,20 @@ class ClearImageBufferCommand extends Command
         return self::NAME;
     }
 
+    /**
+     * @return string
+     */
     public function toEplString()
     {
-        $result = chr(13) . chr(10) . $this->getName();
+        $result = $this->getPrefix() . $this->getName() . $this->getSuffix();
         return $result;
+    }
+
+    /**
+     * @return string
+     */
+    private function getPrefix()
+    {
+        return chr(13) . chr(10);
     }
 }

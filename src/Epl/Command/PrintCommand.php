@@ -60,13 +60,16 @@ class PrintCommand extends Command
         return self::NAME;
     }
 
+    /**
+     * @return string
+     */
     public function toEplString()
     {
         $result = $this->getName() . $this->getNumberOfLabels();
         if ($this->getNumberOfCopies() !== null) {
             $result .= ',' . $this->getNumberOfCopies();
         }
-        return $result;
+        return $result . $this->getSuffix();
     }
 
     /**

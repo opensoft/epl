@@ -7,7 +7,7 @@
 * The unauthorized use of this code outside the boundaries of
 * Farheap Solutions Inc. is prohibited.
 */
-namespace Epl\Command;
+namespace Epl\Command\Form;
 
 use Epl\CommandAbstract as Command;
 
@@ -61,13 +61,16 @@ class PrintAutomaticCommand extends Command
         return self::NAME;
     }
 
+    /**
+     * @return string
+     */
     public function toEplString()
     {
         $result = $this->getName() . $this->getNumberOfLabels();
         if ($this->getNumberOfCopies() !== null) {
             $result .= ',' . $this->getNumberOfCopies();
         }
-        return $result;
+        return $result . $this->getSuffix();
     }
 
     /**

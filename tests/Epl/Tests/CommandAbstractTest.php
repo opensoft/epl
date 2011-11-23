@@ -23,17 +23,6 @@ class Command extends CommandAbstract
  */
 class CommandAbstractTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @test
-     * @dataProvider providerIsValidIntegerInterval
-     */
-    public function isValidIntegerInterval($name, $value, $min, $max, $expResult)
-    {
-        $command = new Command();
-        $result = $command->isValidIntegerInterval($name, $value, $min, $max);
-        $this->assertEquals($expResult, $result);
-    }
-
     public function providerIsValidIntegerInterval()
     {
         return array (
@@ -47,25 +36,6 @@ class CommandAbstractTest extends \PHPUnit_Framework_TestCase
     public function toEplString()
     {
         $command = new Command();
-        $this->assertEquals('Test', $command->toEplString());
-    }
-
-    /**
-     * @test
-     * @dataProvider providerValidIntegerIntervalException
-     * @expectedException \Epl\ExceptionCommand
-     */
-    public function isValidIntegerIntervalException($name, $value, $min, $max)
-    {
-        $command = new Command();
-        $command->isValidIntegerInterval($name, $value, $min, $max);
-    }
-
-    public function providerValidIntegerIntervalException()
-    {
-        return array (
-            array ('test', -1, 1, 3),
-            array ('test', 3, 1, 2)
-        );
+        $this->assertEquals('Test' . chr(13) . chr(10), $command->toEplString());
     }
 }

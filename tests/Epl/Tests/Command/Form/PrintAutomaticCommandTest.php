@@ -7,9 +7,9 @@
 * The unauthorized use of this code outside the boundaries of
 * Farheap Solutions Inc. is prohibited.
 */
-namespace Epl\Tests\Command;
+namespace Epl\Tests\Command\Form;
 
-use Epl\Command\PrintAutomaticCommand;
+use Epl\Command\Form\PrintAutomaticCommand;
 /**
  * @author Dmitry Petrov <dmitry.petrov@opensoftdev.ru>
  */
@@ -68,8 +68,8 @@ class PrintAutomaticCommandTest extends \PHPUnit_Framework_TestCase
     public function providerToEplString()
     {
         return array (
-            array (1, 1, PrintAutomaticCommand::NAME . '1,1'),
-            array (1, null, PrintAutomaticCommand::NAME . '1'),
+            array (1, 1, PrintAutomaticCommand::NAME . '1,1' . chr(13) . chr(10)),
+            array (1, null, PrintAutomaticCommand::NAME . '1' . chr(13) . chr(10)),
 
         );
     }

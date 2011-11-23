@@ -16,11 +16,18 @@ use Epl\ExceptionCommand;
  */
 abstract class CommandAbstract implements CommandInterface
 {
+    /**
+     * @return string
+     */
     public function toEplString()
     {
-        return $this->getName();
+        return $this->getName(). $this->getSuffix();
     }
 
+    /**
+     * @abstract
+     * @return string
+     */
     abstract protected function getName();
 
     /**
@@ -31,11 +38,19 @@ abstract class CommandAbstract implements CommandInterface
      * @return bool
      * @throws ExceptionCommand
      */
-    public function isValidIntegerInterval ($name, $value, $min, $max)
+    protected function isValidIntegerInterval ($name, $value, $min, $max)
     {
         if ($value < $min || $value > $max) {
             throw ExceptionCommand::notValidIntegerParameter($name, $value, $min, $max);
         }
         return true;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getSuffix()
+    {
+        return chr(13) . chr(10);
     }
 }
