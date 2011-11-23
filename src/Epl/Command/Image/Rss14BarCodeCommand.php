@@ -13,14 +13,20 @@ use Epl\Command\Image\BarCodeCommandAbstract as Command;
 use Epl\ExceptionCommand;
 
 /**
- * Use this command to print standard bar codes
+ * Use this command to print RSS-14 bar code family bar codes for numeric data.
+ * The printer supports a subset of the RSS bar code family set. The subset includes basic RSS-14,
+ * RSS Limited, RSS Stacked and RSS Truncated. The printer does not support RSS Expanded or two dimensional composite bar codes.
+ *
+ * Printer Models: 3842 and 2844 *
+ * * - Available as a firmware download from the www.zebra.com website
+ *
+ * @todo The data fields to be refined according to the documentation EPL2
  * @author Dmitry Petrov <dmitry.petrov@opensoftdev.ru>
  */
-class BarCodeCommand extends Command
+class Rss14BarCodeCommand extends Command
 {
     protected $availableBarCodeSelection = array(
-        '3', '3C', '9', '0', '1', '1A', '1B', '1C', '1D', 'K', 'E80', 'E82', 'E85', 'E30', 'E32', 'E35', '2G', '2', '2C',
-        '2D', 'P', 'PL', 'J', '1E', 'UA0', 'UA2', 'UA5', 'UE0', 'UE2', '2U', 'L', 'M'
+        'R14', 'RL', 'RS', 'RT'
     );
 
     /**

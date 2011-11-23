@@ -7,7 +7,7 @@
 * The unauthorized use of this code outside the boundaries of
 * Farheap Solutions Inc. is prohibited.
 */
-namespace Epl\Tests\Command;
+namespace Epl\Tests\Command\Image;
 
 use Epl\Command\Image\BarCodeCommand;
 /**
