@@ -18,4 +18,14 @@ class ExceptionCommand extends \Exception
     {
         return new self ('Accepted values: ' . $min .' to ' . $max .'. ' . $name . ' is ' .$value . '.');
     }
+
+    public static function invalidBarCodeSelection($barcode)
+    {
+        return new self ($barcode . ' is invalid barcode selection');
+    }
+
+    public static function invalidDegree($degree)
+    {
+        return new self ($degree . ' is invalid degree value');
+    }
 }

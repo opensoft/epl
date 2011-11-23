@@ -44,11 +44,11 @@ class PrintCommand extends Command
     public function __construct($numberOfLabels, $numberOfCopies = null)
     {
         if ($this->isValidIntegerInterval('Number of labels', $numberOfLabels, 1, 65535)) {
-            $this->numberOfLabels = $numberOfLabels;
+            $this->numberOfLabels = (int) $numberOfLabels;
         }
 
         if ($numberOfCopies !== null && $this->isValidIntegerInterval('Number of Copies', $numberOfCopies, 1, 65535)) {
-            $this->numberOfCopies = $numberOfCopies;
+            $this->numberOfCopies = (int) $numberOfCopies;
         }
     }
 
