@@ -7,7 +7,7 @@ use Epl\Command\Stored\DensityCommand as Command;
 /**
  * @author Dmitry Petrov <dmitry.petrov@opensoftdev.ru>
  */
-class CommandTest extends \PHPUnit_Framework_TestCase
+class DensityCommandTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @test
