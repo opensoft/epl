@@ -1,12 +1,5 @@
 <?php
-/*
-* This file is part of ProFIT
-*
-* Copyright (c) 2011 Farheap Solutions (http://www.farheap.com)
-*
-* The unauthorized use of this code outside the boundaries of
-* Farheap Solutions Inc. is prohibited.
-*/
+
 namespace Epl;
 
 use Epl\ExceptionCommand;
@@ -41,7 +34,7 @@ abstract class CommandAbstract implements CommandInterface
     protected function isValidIntegerInterval ($name, $value, $min, $max)
     {
         if ($value < $min || $value > $max) {
-            throw ExceptionCommand::notValidIntegerParameter($name, $value, $min, $max);
+            throw ExceptionCommand::invalidIntegerParameter($name, $value, $min, $max);
         }
         return true;
     }

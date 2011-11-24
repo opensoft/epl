@@ -1,12 +1,5 @@
 <?php
-/*
-* This file is part of ProFIT
-*
-* Copyright (c) 2011 Farheap Solutions (http://www.farheap.com)
-*
-* The unauthorized use of this code outside the boundaries of
-* Farheap Solutions Inc. is prohibited.
-*/
+
 
 namespace Epl\Command\Image;
 
@@ -80,6 +73,19 @@ abstract class BarCodeCommandAbstract extends Command
      */
     protected $data;
 
+    /**
+     * @param int $horizontalStartPosition
+     * @param int $verticalStartPosition
+     * @param int $rotation
+     * @param string $barCodeSelection
+     * @param int $narrowBarWidth
+     * @param int $wideBarWidth
+     * @param int $barCodeHeight
+     * @param bool $printHumanReadable
+     * @param string $data
+     * @param bool $convertRotation
+     * @throws \Epl\ExceptionCommand
+     */
     public function __construct($horizontalStartPosition, $verticalStartPosition, $rotation, $barCodeSelection,
                                 $narrowBarWidth, $wideBarWidth, $barCodeHeight, $printHumanReadable, $data, $convertRotation = true)
     {
@@ -91,15 +97,15 @@ abstract class BarCodeCommandAbstract extends Command
         $this->rotation                = $rotation;
 
         if ($this->isValidBarCodeSelection($barCodeSelection)) {
-            $this->barCodeSelection    = $barCodeSelection;
+            $this->barCodeSelection    = (string) $barCodeSelection;
         }
 
         if ($this->isValidNarrowBarWidth($narrowBarWidth)) {
-            $this->narrowBarWidth      = $narrowBarWidth;
+            $this->narrowBarWidth      = (int) $narrowBarWidth;
         }
 
         if ($this->isValidWideBarWidth($wideBarWidth)) {
-            $this->wideBarWidth        = $wideBarWidth;
+            $this->wideBarWidth        = (int) $wideBarWidth;
         }
 
         $this->barCodeHeight           = (int) $barCodeHeight;
@@ -201,10 +207,12 @@ abstract class BarCodeCommandAbstract extends Command
      */
     protected function isValidBarCodeSelection($barCodeSelection)
     {
-        if (!in_array($barCodeSelection, $this->getAvailableBarCodeSelection())) {
-            throw ExceptionCommand::invalidBarCodeSelection($barCodeSelection);
+        foreach ($this->getAvailableBarCodeSelection() as $availableBarCode) {
+            if ($availableBarCode === (string) $barCodeSelection) {
+                return true;
+            }
         }
-        return true;
+        throw ExceptionCommand::invalidBarCodeSelection($barCodeSelection);
     }
 
     /**

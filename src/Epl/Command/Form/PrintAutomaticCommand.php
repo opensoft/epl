@@ -1,12 +1,5 @@
 <?php
-/*
-* This file is part of ProFIT
-*
-* Copyright (c) 2011 Farheap Solutions (http://www.farheap.com)
-*
-* The unauthorized use of this code outside the boundaries of
-* Farheap Solutions Inc. is prohibited.
-*/
+
 namespace Epl\Command\Form;
 
 use Epl\CommandAbstract as Command;
@@ -41,6 +34,7 @@ class PrintAutomaticCommand extends Command
     /**
      * @param int $numberOfLabels
      * @param null|int $numberOfCopies
+     * @throws \Epl\ExceptionCommand
      */
     public function __construct($numberOfLabels, $numberOfCopies = null)
     {
