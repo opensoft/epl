@@ -6,7 +6,7 @@ use Epl\Command\Stored\SetFormWidthCommand as Command;
 /**
  * @author Dmitry Petrov <dmitry.petrov@opensoftdev.ru>
  */
-class CommandTest extends \PHPUnit_Framework_TestCase
+class SetFormWidthCommandTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @test
