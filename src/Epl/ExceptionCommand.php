@@ -61,8 +61,44 @@ class ExceptionCommand extends \Exception
         return new self ($printerCodePage . ' is invalid for ' . $bit . 'bit data');
     }
 
+    /**
+     * @static
+     * @param $countryCode
+     * @return ExceptionCommand
+     */
     public static function invalidKDUCountryCode($countryCode)
     {
         return new self ($countryCode . 'is invalid KDU country code');
+    }
+
+    /**
+     * @static
+     * @param $option
+     * @return ExceptionCommand
+     */
+    public static function invalidHardwareOption($option)
+    {
+        return new self ($option . ' is invalid hardware option');
+    }
+
+    /**
+     * @static
+     * @param $option
+     * @param $additionalOption
+     * @return ExceptionCommand
+     */
+    public static function invalidHardwareAdditionalOption($option, $additionalOption)
+    {
+        return new self ($option . ' can not have the additional parameter');
+    }
+
+    /**
+     * @static
+     * @param $additionalOption
+     * @return ExceptionCommand
+     */
+    public static function invalidHardwareAdditionalOptionForFeedSettings($additionalOption)
+    {
+        return new self ($additionalOption . ' is invalid hardware additional optional for feed settings');
     }
 }
