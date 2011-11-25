@@ -54,7 +54,7 @@ class HardwareOptionCommand extends Command
     );
 
     /**
-     * @param $option
+     * @param string $option
      * @param null $additionalOption
      * @throws \Epl\ExceptionCommand
      */

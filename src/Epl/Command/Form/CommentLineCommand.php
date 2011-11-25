@@ -24,6 +24,9 @@ class CommentLineCommand extends Command
      */
     private $commentData;
 
+    /**
+     * @param string $commentData
+     */
     public function __construct($commentData)
     {
         $this->commentData = $commentData;

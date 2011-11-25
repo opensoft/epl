@@ -110,6 +110,19 @@ class AsciiTextCommand extends Command
      */
     private $data;
 
+    /**
+     * @param int $horizontalStartPosition
+     * @param int $verticalStartPosition
+     * @param int $rotation
+     * @param int $fontSelection
+     * @param int $horizontalMultiplier
+     * @param int $verticalMultiplier
+     * @param bool $reverseImage
+     * @param string $data
+     * @param bool $convertRotation
+     * @param bool $asianFont
+     * @throw ExceptionCommand
+     */
     public function __construct($horizontalStartPosition, $verticalStartPosition, $rotation, $fontSelection,
                                 $horizontalMultiplier, $verticalMultiplier, $reverseImage, $data, $convertRotation = true,
                                 $asianFont = false)
@@ -143,6 +156,8 @@ class AsciiTextCommand extends Command
      * 2 = 180 degrees
      * 3 = 270 degrees
      * @param int $degree
+     * @param $asianFont
+     * @throw ExceptionCommand
      * @return int
      */
     private function rotationConvertFromDegree($degree, $asianFont)
@@ -174,6 +189,10 @@ class AsciiTextCommand extends Command
 
     }
 
+    /**
+     * @param $reverseImage
+     * @return string
+     */
     private function reverseImageConvert($reverseImage)
     {
         if ($reverseImage) {

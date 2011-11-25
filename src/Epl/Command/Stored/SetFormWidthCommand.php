@@ -32,6 +32,9 @@ class SetFormWidthCommand extends Command
      */
     private $width;
 
+    /**
+     * @param int $width
+     */
     public function __construct($width)
     {
         $this->width = (int) $width;
