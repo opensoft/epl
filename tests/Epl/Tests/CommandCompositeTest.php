@@ -2,7 +2,7 @@
 
 namespace Epl\Tests;
 
-use Epl\CommandFacade;
+use Epl\CommandComposite;
 use Epl\Command\Image\ClearImageBufferCommand;
 use Epl\Command\Stored\SpeedCommand;
 use Epl\Command\PrintCommand;
@@ -10,7 +10,7 @@ use Epl\Command\PrintCommand;
 /**
  * @author Dmitry Petrov <dmitry.petrov@opensoftdev.ru>
  */
-class CommandFacadeTest extends \PHPUnit_Framework_TestCase
+class CommandCompositeTest extends \PHPUnit_Framework_TestCase
 {
     public function providerIsValidIntegerInterval()
     {
@@ -27,12 +27,12 @@ class CommandFacadeTest extends \PHPUnit_Framework_TestCase
         $clearImageBuffer = new ClearImageBufferCommand();
         $speed = new SpeedCommand(1);
         $print = new PrintCommand(1);
-        $command = new CommandFacade();
+        $command = new CommandComposite();
         $command->addCommand($clearImageBuffer);
         $command->addCommand($speed);
         $command->addCommand($print);
 
-        $this->assertInstanceOf('Epl\\CommandFacadeInterface', $command);
+        $this->assertInstanceOf('Epl\\CommandCompositeInterface', $command);
         $this->assertEquals(3, count($command->getCommands()));
         foreach ($command->getCommands() as $commandEpl) {
             $this->assertInstanceOf('Epl\\CommandInterface', $commandEpl);

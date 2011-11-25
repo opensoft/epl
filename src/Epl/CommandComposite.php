@@ -5,7 +5,7 @@ namespace  Epl;
 /**
  * @author Dmitry Petrov <dmitry.petrov@opensoftdev.ru>
  */
-final class CommandFacade implements CommandFacadeInterface, CommandInterface
+final class CommandComposite implements CommandCompositeInterface, CommandInterface
 {
     /**
      * @var array|CommandInterface[]
@@ -19,7 +19,7 @@ final class CommandFacade implements CommandFacadeInterface, CommandInterface
 
     /**
      * @param CommandInterface $command
-     * @return \Epl\CommandFacade
+     * @return \Epl\CommandComposite
      */
     public function addCommand(CommandInterface $command)
     {

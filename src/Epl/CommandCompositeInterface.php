@@ -5,12 +5,12 @@ namespace Epl;
 /**
  * @author Dmitry Petrov <dmitry.petrov@opensoftdev.ru>
  */
-interface CommandFacadeInterface
+interface CommandCompositeInterface
 {
     /**
      * @abstract
      * @param CommandInterface $command
-     * @return CommandFacadeInterface
+     * @return CommandCompositeInterface
      */
     public function addCommand(CommandInterface $command);
 

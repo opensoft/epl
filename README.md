@@ -4,9 +4,9 @@ The library is a php wrapper for the EPL2 Programming Language. At present do no
 
 <syntaxhighlight lang="php">
 <?php
-use Epl\Command\CommandFacade;
+use Epl\Command\CommandComposite;
 
-$commandFacade = mew CommandFacade();
+$commandFacade = mew CommandComposite();
 //Draw new line
 $commandFacade->lineDrawBlack(50, 200, 400, 20);
 //Draw other line
@@ -20,15 +20,15 @@ $eplString = $commandFacade->toEplString();
 
 To implement the commands necessary to implement Epl\CommandInterface.
 
-For convenience of use EPL commands there is a CommandFacade. It hides the implementation EPL commands.
+For convenience of use EPL commands there is a CommandComposite. It hides the implementation EPL commands.
 But you can direct way to instantiate the command.
 
 <syntaxhighlight lang="php">
 <?php
 use Epl\Command\PrintCommand;
-use Epl\Command\CommandFacade;
+use Epl\Command\CommandComposite;
 
-$commandFacade = mew CommandFacade();
+$commandFacade = mew CommandComposite();
 $printCommand = new PrintCommand(1);
 $commandFacade->addCommand($printCommand);
 $eplString = $commandFacade->toEplString();
