@@ -23,8 +23,8 @@ class BoxDrawCommandTest extends \PHPUnit_Framework_TestCase
     public function providerToEplString()
     {
         return array(
-            array(1,1,1,1,1, BoxDrawCommand::NAME . '1,1,1,1,1' . chr(10)),
-            array(false,'ss',2.5,2,1, BoxDrawCommand::NAME . '0,0,2,2,1' . chr(10))
+            array(1,1,1,1,1, 'X1,1,1,1,1' . chr(10)),
+            array(false,'ss',2.5,2,1, 'X0,0,2,2,1' . chr(10))
         );
     }
 }

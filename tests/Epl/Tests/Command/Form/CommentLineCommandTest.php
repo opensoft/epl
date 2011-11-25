@@ -21,8 +21,8 @@ class CommentLineCommandTest extends \PHPUnit_Framework_TestCase
     public function providerToEplString()
     {
         return array(
-            array('Test', Command::NAME . ' Test' . chr(10)),
-            array('T;s\\S"T@', Command::NAME . ' T;s\\S"T@' . chr(10))
+            array('Test', '; Test' . chr(10)),
+            array('T;s\\S"T@', '; T;s\\S"T@' . chr(10))
         );
     }
 }

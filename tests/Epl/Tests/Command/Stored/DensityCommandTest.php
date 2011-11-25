@@ -22,8 +22,8 @@ class DensityCommandTest extends \PHPUnit_Framework_TestCase
     public function providerToEplString()
     {
         return array(
-            array(0, Command::NAME . '0' . chr(10)),
-            array(15, Command::NAME . '15' . chr(10))
+            array(0, 'D0' . chr(10)),
+            array(15, 'D15' . chr(10))
         );
     }
 

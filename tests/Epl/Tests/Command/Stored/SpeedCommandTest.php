@@ -21,8 +21,8 @@ class SpeedCommandTest extends \PHPUnit_Framework_TestCase
     public function providerToEplString()
     {
         return array(
-            array(1, SpeedCommand::NAME . '1' . chr(10)),
-            array(0, SpeedCommand::NAME . '0' . chr(10))
+            array(1, 'S1' . chr(10)),
+            array(0, 'S0' . chr(10))
         );
     }
 }

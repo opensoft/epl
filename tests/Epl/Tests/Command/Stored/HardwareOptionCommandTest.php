@@ -14,40 +14,40 @@ class HardwareOptionCommandTest extends \PHPUnit_Framework_TestCase
     public function toEplString()
     {
         $command = new Command('C');
-        $this->assertEquals(Command::NAME . 'C' . chr(10), $command->toEplString());
+        $this->assertEquals('OC' . chr(10), $command->toEplString());
 
         $command = new Command('C', 'b');
-        $this->assertEquals(Command::NAME . 'Cb' . chr(10), $command->toEplString());
+        $this->assertEquals('OCb' . chr(10), $command->toEplString());
 
         $command = new Command('C', 1);
-        $this->assertEquals(Command::NAME . 'C1' . chr(10), $command->toEplString());
+        $this->assertEquals('OC1' . chr(10), $command->toEplString());
 
         $command = new Command('C', 255);
-        $this->assertEquals(Command::NAME . 'C255' . chr(10), $command->toEplString());
+        $this->assertEquals('OC255' . chr(10), $command->toEplString());
 
         $command = new Command('D');
-        $this->assertEquals(Command::NAME . 'D' . chr(10), $command->toEplString());
+        $this->assertEquals('OD' . chr(10), $command->toEplString());
 
         $command = new Command('d');
-        $this->assertEquals(Command::NAME . 'd' . chr(10), $command->toEplString());
+        $this->assertEquals('Od' . chr(10), $command->toEplString());
 
         $command = new Command('P');
-        $this->assertEquals(Command::NAME . 'P' . chr(10), $command->toEplString());
+        $this->assertEquals('OP' . chr(10), $command->toEplString());
 
         $command = new Command('L');
-        $this->assertEquals(Command::NAME . 'L' . chr(10), $command->toEplString());
+        $this->assertEquals('OL' . chr(10), $command->toEplString());
 
         $command = new Command('S');
-        $this->assertEquals(Command::NAME . 'S' . chr(10), $command->toEplString());
+        $this->assertEquals('OS' . chr(10), $command->toEplString());
 
         $command = new Command('F', 'f');
-        $this->assertEquals(Command::NAME . 'Ff' . chr(10), $command->toEplString());
+        $this->assertEquals('OFf' . chr(10), $command->toEplString());
 
         $command = new Command('F', 'r');
-        $this->assertEquals(Command::NAME . 'Fr' . chr(10), $command->toEplString());
+        $this->assertEquals('OFr' . chr(10), $command->toEplString());
 
         $command = new Command('F', 'i');
-        $this->assertEquals(Command::NAME . 'Fi' . chr(10), $command->toEplString());
+        $this->assertEquals('OFi' . chr(10), $command->toEplString());
     }
 
     /**

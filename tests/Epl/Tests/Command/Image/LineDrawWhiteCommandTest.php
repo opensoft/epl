@@ -22,8 +22,8 @@ class LineDrawWhiteCommandTest extends \PHPUnit_Framework_TestCase
     public function providerToEplString()
     {
         return array(
-            array(10, 10, 20, 200, Command::NAME . '10,10,20,200' . chr(10)),
-            array(false, true, 'sss', 1, Command::NAME . '0,1,0,1' . chr(10))
+            array(10, 10, 20, 200, 'LW10,10,20,200' . chr(10)),
+            array(false, true, 'sss', 1, 'LW0,1,0,1' . chr(10))
         );
     }
 }

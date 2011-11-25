@@ -21,13 +21,13 @@ class SetFormLengthCommandTest extends \PHPUnit_Framework_TestCase
     public function providerToEplString()
     {
         return array(
-            array(0, 20, null, Command::NAME . '0,20' . chr(10)),
-            array(65535, 20, null, Command::NAME . '65535,20' . chr(10)),
-            array(60, 16, null, Command::NAME . '60,16' . chr(10)),
-            array(60, 240, null, Command::NAME . '60,240' . chr(10)),
-            array(6, 24, 24, Command::NAME . '6,24+24' . chr(10)),
-            array(6, 24, 0, Command::NAME . '6,24+0' . chr(10)),
-            array(6, 24, 65535, Command::NAME . '6,24+65535' . chr(10)),
+            array(0, 20, null, 'Q0,20' . chr(10)),
+            array(65535, 20, null, 'Q65535,20' . chr(10)),
+            array(60, 16, null, 'Q60,16' . chr(10)),
+            array(60, 240, null, 'Q60,240' . chr(10)),
+            array(6, 24, 24, 'Q6,24+24' . chr(10)),
+            array(6, 24, 0, 'Q6,24+0' . chr(10)),
+            array(6, 24, 65535, 'Q6,24+65535' . chr(10)),
         );
     }
 

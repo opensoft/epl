@@ -22,7 +22,7 @@ class DisableTopOfFormBackupAllCasesCommandTest extends \PHPUnit_Framework_TestC
     public function providerToEplString()
     {
         return array(
-            array(Command::NAME . '' . chr(10))
+            array('JC' . chr(10))
         );
     }
 }

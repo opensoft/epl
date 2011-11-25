@@ -14,6 +14,6 @@ class ClearImageBufferCommandTest extends \PHPUnit_Framework_TestCase
     public function toEplString()
     {
         $command = new ClearImageBufferCommand();
-        $this->assertEquals(chr(10) . ClearImageBufferCommand::NAME . chr(10), $command->toEplString());
+        $this->assertEquals(chr(10) . 'N' . chr(10), $command->toEplString());
     }
 }

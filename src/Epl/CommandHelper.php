@@ -44,6 +44,7 @@ class CommandHelper implements CommandHelperInterface
      * @param string $data
      * @param bool $convertRotation
      * @param bool $asianFont
+     * @return \Epl\CommandHelper
      * @throw ExceptionCommand
      */
     public function asciiText($horizontalStartPosition, $verticalStartPosition, $rotation, $fontSelection,
@@ -54,5 +55,32 @@ class CommandHelper implements CommandHelperInterface
                                                       $horizontalMultiplier, $verticalMultiplier, $reverseImage, $data,
                                                       $convertRotation, $asianFont);
         $this->getComposite()->addCommand($command);
+        return $this;
+    }
+
+
+
+    /**
+     * @param int $horizontalStartPosition
+     * @param int $verticalStartPosition
+     * @param int $rotation
+     * @param string $barCodeSelection
+     * @param int $narrowBarWidth
+     * @param int $wideBarWidth
+     * @param int $barCodeHeight
+     * @param bool $printHumanReadable
+     * @param string $data
+     * @param bool $convertRotation
+     * @return \Epl\CommandHelper
+     * @throws \Epl\ExceptionCommand
+     */
+    public function barCode($horizontalStartPosition, $verticalStartPosition, $rotation, $barCodeSelection,
+                            $narrowBarWidth, $wideBarWidth, $barCodeHeight, $printHumanReadable, $data, $convertRotation)
+    {
+        $command = new Command\Image\BarCodeCommand($horizontalStartPosition, $verticalStartPosition, $rotation, $barCodeSelection,
+                                                      $narrowBarWidth, $wideBarWidth, $barCodeHeight, $printHumanReadable,
+                                                      $data, $convertRotation);
+        $this->getComposite()->addCommand($command);
+        return $this;
     }
 }
