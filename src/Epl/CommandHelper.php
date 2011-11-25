@@ -280,4 +280,18 @@ class CommandHelper implements CommandHelperInterface
         $this->getComposite()->addCommand($command);
         return $this;
     }
+
+    /**
+     * @param int $labelLength
+     * @param int $gapLength
+     * @param int|null $offsetLength
+     * @throws \Epl\ExceptionCommand
+     * @return CommandHelper
+     */
+    public function setFormLength($labelLength, $gapLength, $offsetLength = null)
+    {
+        $command = new Command\Stored\SetFormLengthCommand($labelLength, $gapLength, $offsetLength);
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
 }

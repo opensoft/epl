@@ -41,7 +41,9 @@ class CommandTest extends \PHPUnit_Framework_TestCase
                 ->printLabel(1, 1)
                 ->printAutomatic(1)
                 ->printAutomatic(1, 1)
-                ->setFormWidth(10);
+                ->setFormWidth(10)
+                ->setFormLength(6, 24, 65535)
+                ->setFormLength(6, 20);
         $this->assertEquals('A1,1,1,1,1,1,N,"TEST"' . chr(10)
                           . 'B1,1,1,1,1,2,1,B,"TEST"' . chr(10)
                           . 'B1,1,0,RL,1,2,1,N,"\"123456789\""' . chr(10)
@@ -64,6 +66,8 @@ class CommandTest extends \PHPUnit_Framework_TestCase
                           . 'PA1' . chr(10)
                           . 'PA1,1' . chr(10)
                           . 'q10' . chr(10)
+                          . 'Q6,24+65535' . chr(10)
+                          . 'Q6,20' . chr(10)
 
                            , $command->toEplString());
     }
