@@ -20,11 +20,11 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     public function toEplString()
     {
         $command = new Command($this->composite);
-        $command->asciiText(1, 1, 90, 1, 1, 1, false, 'TEST', true, false)
-                ->barCode(1, 1, 90, 1, 1, 2, 1, true, 'TEST', true)
-                ->rss14BarCode(1, 1, 0, 'RL', 1, 2, 1, false, '"123456789"', true)
+        $command->asciiText(1, 1, 90, 1, 1, 1, false, 'TEST')
+                ->barCode(1, 1, 90, 1, 1, 2, 1, true, 'TEST')
+                ->rss14BarCode(1, 1, 0, 'RL', 1, 2, 1, false, '"123456789"')
                 ->density(15)
-                ->characterSetSelection(8, '0', '032')
+                ->characterSetSelection()
                 ->disableTopOfFormBackup()
                 ->disableTopOfFormBackupAllCases()
                 ->enableTopOfFormBackup()
@@ -32,12 +32,16 @@ class CommandTest extends \PHPUnit_Framework_TestCase
                 ->lineDrawBlack(10, 10, 20, 200)
                 ->lineDrawDiagonal(10, 10, 20, 200, 200)
                 ->lineDrawWhite(10, 10, 20, 200)
-                ->clearImageBuffer();
+                ->clearImageBuffer()
+                ->hardwareOption('C')
+                ->hardwareOption('C', 'b')
+                ->hardwareOption('C', 12)
+                ->hardwareOption('F', 'r');
         $this->assertEquals('A1,1,1,1,1,1,N,"TEST"' . chr(10)
                           . 'B1,1,1,1,1,2,1,B,"TEST"' . chr(10)
                           . 'B1,1,0,RL,1,2,1,N,"\"123456789\""' . chr(10)
                           . 'D15' . chr(10)
-                          . 'I8,0,032' . chr(10)
+                          . 'I8,0,001' . chr(10)
                           . 'JB' . chr(10)
                           . 'JC' . chr(10)
                           . 'JF' . chr(10)
@@ -46,6 +50,10 @@ class CommandTest extends \PHPUnit_Framework_TestCase
                           . 'LS10,10,20,200,200' . chr(10)
                           . 'LW10,10,20,200' . chr(10)
                           . chr(10) . 'N' . chr(10)
+                          . 'OC' . chr(10)
+                          . 'OCb' . chr(10)
+                          . 'OC12' . chr(10)
+                          . 'OFr' . chr(10)
 
                            , $command->toEplString());
     }

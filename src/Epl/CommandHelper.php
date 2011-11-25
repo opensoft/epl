@@ -75,7 +75,7 @@ class CommandHelper implements CommandHelperInterface
      * @throws \Epl\ExceptionCommand
      */
     public function barCode($horizontalStartPosition, $verticalStartPosition, $rotation, $barCodeSelection,
-                            $narrowBarWidth, $wideBarWidth, $barCodeHeight, $printHumanReadable, $data, $convertRotation)
+                            $narrowBarWidth, $wideBarWidth, $barCodeHeight, $printHumanReadable, $data, $convertRotation = true)
     {
         $command = new Command\Image\BarCodeCommand($horizontalStartPosition, $verticalStartPosition, $rotation, $barCodeSelection,
                                                       $narrowBarWidth, $wideBarWidth, $barCodeHeight, $printHumanReadable,
@@ -99,7 +99,7 @@ class CommandHelper implements CommandHelperInterface
      * @throws \Epl\ExceptionCommand
      */
     public function rss14BarCode($horizontalStartPosition, $verticalStartPosition, $rotation, $barCodeSelection,
-                                 $narrowBarWidth, $wideBarWidth, $barCodeHeight, $printHumanReadable, $data, $convertRotation)
+                                 $narrowBarWidth, $wideBarWidth, $barCodeHeight, $printHumanReadable, $data, $convertRotation = true)
     {
         $command = new Command\Image\Rss14BarCodeCommand($horizontalStartPosition, $verticalStartPosition, $rotation, $barCodeSelection,
                                                          $narrowBarWidth, $wideBarWidth, $barCodeHeight, $printHumanReadable, $data, $convertRotation);
@@ -125,7 +125,7 @@ class CommandHelper implements CommandHelperInterface
      * @throws \Epl\ExceptionCommand
      * @return \Epl\CommandHelper
      */
-    public function characterSetSelection($numberOfDataBits, $printerCodePage, $KDUCountryCode)
+    public function characterSetSelection($numberOfDataBits = 8, $printerCodePage = '0', $KDUCountryCode = '001')
     {
         $command = new Command\Stored\CharacterSetSelectionCommand($numberOfDataBits, $printerCodePage, $KDUCountryCode);
         $this->getComposite()->addCommand($command);
@@ -227,6 +227,13 @@ class CommandHelper implements CommandHelperInterface
     public function clearImageBuffer()
     {
         $command = new Command\Image\ClearImageBufferCommand();
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
+
+    public function hardwareOption($option, $additionalOption = null)
+    {
+        $command = new Command\Stored\HardwareOptionCommand($option, $additionalOption);
         $this->getComposite()->addCommand($command);
         return $this;
     }
