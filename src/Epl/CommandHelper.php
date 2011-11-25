@@ -122,8 +122,8 @@ class CommandHelper implements CommandHelperInterface
      * @param int $numberOfDataBits
      * @param string $printerCodePage
      * @param string $KDUCountryCode
-     * @return \Epl\CommandHelper
      * @throws \Epl\ExceptionCommand
+     * @return \Epl\CommandHelper
      */
     public function characterSetSelection($numberOfDataBits, $printerCodePage, $KDUCountryCode)
     {
@@ -158,6 +158,65 @@ class CommandHelper implements CommandHelperInterface
     public function enableTopOfFormBackup()
     {
         $command = new Command\Stored\EnableTopOfFormBackupCommand();
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
+
+    /**
+     * @param int $horizontalStartPosition
+     * @param int $verticalStartPosition
+     * @param int $horizontalLength
+     * @param int $verticalLength
+     * @return \Epl\CommandHelper
+     */
+    public function lineDrawExclusiveOR($horizontalStartPosition, $verticalStartPosition, $horizontalLength, $verticalLength)
+    {
+        $command = new Command\Image\LineDrawExclusiveORCommand($horizontalStartPosition, $verticalStartPosition, $horizontalLength, $verticalLength);
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
+
+    /**
+     * @param int $horizontalStartPosition
+     * @param int $verticalStartPosition
+     * @param int $horizontalLength
+     * @param int $verticalLength
+     * @return \Epl\CommandHelper
+     */
+    public function lineDrawBlack($horizontalStartPosition, $verticalStartPosition, $horizontalLength, $verticalLength)
+    {
+        $command = new Command\Image\LineDrawBlackCommand($horizontalStartPosition, $verticalStartPosition, $horizontalLength, $verticalLength);
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
+
+    /**
+     * @param int $horizontalStartPosition
+     * @param int $verticalStartPosition
+     * @param int $horizontalLength
+     * @param int $verticalLength
+     * @param int $verticalEndPosition
+     * @return \Epl\CommandHelper
+     */
+    public function lineDrawDiagonal($horizontalStartPosition, $verticalStartPosition, $horizontalLength, $verticalLength, $verticalEndPosition)
+    {
+        $command = new Command\Image\LineDrawDiagonalCommand($horizontalStartPosition, $verticalStartPosition, $horizontalLength, $verticalLength, $verticalEndPosition);
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
+
+
+
+    /**
+     * @param int $horizontalStartPosition
+     * @param int $verticalStartPosition
+     * @param int $horizontalLength
+     * @param int $verticalLength
+     * @return \Epl\CommandHelper
+     */
+    public function lineDrawWhite($horizontalStartPosition, $verticalStartPosition, $horizontalLength, $verticalLength)
+    {
+        $command = new Command\Image\LineDrawWhiteCommand($horizontalStartPosition, $verticalStartPosition, $horizontalLength, $verticalLength);
         $this->getComposite()->addCommand($command);
         return $this;
     }

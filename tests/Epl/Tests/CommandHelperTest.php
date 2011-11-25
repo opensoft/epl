@@ -27,7 +27,11 @@ class CommandTest extends \PHPUnit_Framework_TestCase
                 ->characterSetSelection(8, '0', '032')
                 ->disableTopOfFormBackup()
                 ->disableTopOfFormBackupAllCases()
-                ->enableTopOfFormBackup();
+                ->enableTopOfFormBackup()
+                ->lineDrawExclusiveOR(10, 10, 20, 200)
+                ->lineDrawBlack(10, 10, 20, 200)
+                ->lineDrawDiagonal(10, 10, 20, 200, 200)
+                ->lineDrawWhite(10, 10, 20, 200);
         $this->assertEquals('A1,1,1,1,1,1,N,"TEST"' . chr(10)
                           . 'B1,1,1,1,1,2,1,B,"TEST"' . chr(10)
                           . 'B1,1,0,RL,1,2,1,N,"\"123456789\""' . chr(10)
@@ -36,6 +40,10 @@ class CommandTest extends \PHPUnit_Framework_TestCase
                           . 'JB' . chr(10)
                           . 'JC' . chr(10)
                           . 'JF' . chr(10)
+                          . 'LE10,10,20,200' . chr(10)
+                          . 'LO10,10,20,200' . chr(10)
+                          . 'LS10,10,20,200,200' . chr(10)
+                          . 'LW10,10,20,200' . chr(10)
 
                            , $command->toEplString());
     }
