@@ -231,9 +231,28 @@ class CommandHelper implements CommandHelperInterface
         return $this;
     }
 
+    /**
+     * @param string $option
+     * @param null $additionalOption
+     * @throws \Epl\ExceptionCommand
+     * @return \Epl\CommandHelper
+     */
     public function hardwareOption($option, $additionalOption = null)
     {
         $command = new Command\Stored\HardwareOptionCommand($option, $additionalOption);
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
+
+    /**
+     * @param int $numberOfLabels
+     * @param null|int $numberOfCopies
+     * @throws \Epl\ExceptionCommand
+     * @return CommandHelper
+     */
+    public function printLabel($numberOfLabels, $numberOfCopies = null)
+    {
+        $command = new Command\PrintCommand($numberOfLabels, $numberOfCopies);
         $this->getComposite()->addCommand($command);
         return $this;
     }

@@ -165,7 +165,7 @@ $loader->registerNamespaces(array(
 | Print
 | Complete
 | Epl\Command\PrintCommand
-| print
+| printLabel
 |-
 | PA
 | Print Automatic
