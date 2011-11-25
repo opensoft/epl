@@ -269,4 +269,15 @@ class CommandHelper implements CommandHelperInterface
         $this->getComposite()->addCommand($command);
         return $this;
     }
+
+    /**
+     * @param int $width
+     * @return CommandHelper
+     */
+    public function setFormWidth($width)
+    {
+        $command = new Command\Stored\SetFormWidthCommand($width);
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
 }
