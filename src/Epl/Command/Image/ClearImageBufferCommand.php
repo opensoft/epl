@@ -38,6 +38,6 @@ class ClearImageBufferCommand extends Command
      */
     private function getPrefix()
     {
-        return chr(13) . chr(10);
+        return chr(10);
     }
 }

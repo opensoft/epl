@@ -37,6 +37,6 @@ class CommandFacadeTest extends \PHPUnit_Framework_TestCase
         foreach ($command->getCommands() as $commandEpl) {
             $this->assertInstanceOf('Epl\\CommandInterface', $commandEpl);
         }
-        $this->assertEquals(chr(13) . chr(10) . 'N' . chr(13) . chr(10) . 'S1' . chr(13) . chr(10) . 'P1' . chr(13) . chr(10), $command->toEplString());
+        $this->assertEquals(chr(10) . 'N' . chr(10) . 'S1' . chr(10) . 'P1' . chr(10), $command->toEplString());
     }
 }

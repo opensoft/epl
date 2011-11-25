@@ -44,6 +44,6 @@ abstract class CommandAbstract implements CommandInterface
      */
     protected function getSuffix()
     {
-        return chr(13) . chr(10);
+        return chr(10);
     }
 }

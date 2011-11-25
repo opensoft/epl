@@ -29,6 +29,6 @@ class CommandAbstractTest extends \PHPUnit_Framework_TestCase
     public function toEplString()
     {
         $command = new Command();
-        $this->assertEquals('Test' . chr(13) . chr(10), $command->toEplString());
+        $this->assertEquals('Test' . chr(10), $command->toEplString());
     }
 }

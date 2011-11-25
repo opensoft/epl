@@ -60,8 +60,8 @@ class PrintCommandTest extends \PHPUnit_Framework_TestCase
     public function providerToEplString()
     {
         return array (
-            array (1, 1, PrintCommand::NAME . '1,1' . chr(13) . chr(10)),
-            array (1, null, PrintCommand::NAME . '1' . chr(13) . chr(10)),
+            array (1, 1, PrintCommand::NAME . '1,1' . chr(10)),
+            array (1, null, PrintCommand::NAME . '1' . chr(10)),
 
         );
     }

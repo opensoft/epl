@@ -14,25 +14,25 @@ class CharacterSetSelectionCommandTest extends \PHPUnit_Framework_TestCase
     public function toEplString()
     {
         $command = new Command();
-        $this->assertEquals(Command::NAME . '8,0,001' . chr(13) . chr(10), $command->toEplString());
+        $this->assertEquals(Command::NAME . '8,0,001' . chr(10), $command->toEplString());
 
         $command = new Command(8);
-        $this->assertEquals(Command::NAME . '8,0,001' . chr(13) . chr(10), $command->toEplString());
+        $this->assertEquals(Command::NAME . '8,0,001' . chr(10), $command->toEplString());
 
         $command = new Command(7);
-        $this->assertEquals(Command::NAME . '7,0,001' . chr(13) . chr(10), $command->toEplString());
+        $this->assertEquals(Command::NAME . '7,0,001' . chr(10), $command->toEplString());
 
         $command = new Command(7, 8);
-        $this->assertEquals(Command::NAME . '7,8,001' . chr(13) . chr(10), $command->toEplString());
+        $this->assertEquals(Command::NAME . '7,8,001' . chr(10), $command->toEplString());
 
         $command = new Command(8, 13, '032');
-        $this->assertEquals(Command::NAME . '8,13,032' . chr(13) . chr(10), $command->toEplString());
+        $this->assertEquals(Command::NAME . '8,13,032' . chr(10), $command->toEplString());
 
         $command = new Command(8, '13', '032');
-        $this->assertEquals(Command::NAME . '8,13,032' . chr(13) . chr(10), $command->toEplString());
+        $this->assertEquals(Command::NAME . '8,13,032' . chr(10), $command->toEplString());
 
         $command = new Command(8, 'F', '027');
-        $this->assertEquals(Command::NAME . '8,F,027' . chr(13) . chr(10), $command->toEplString());
+        $this->assertEquals(Command::NAME . '8,F,027' . chr(10), $command->toEplString());
     }
 
     /**

@@ -23,15 +23,15 @@ class BarCodeCommandTest extends \PHPUnit_Framework_TestCase
     public function providerToEplString()
     {
         return array(
-            array(1, 1, 90, 1, 1, 2, 1, true, 'TEST', true, BarCodeCommand::NAME . '1,1,1,1,1,2,1,B,"TEST"' . chr(13) . chr(10)),
-            array(1, 1, 180, 1, 1, 2, 1, true, 'TEST', true, BarCodeCommand::NAME . '1,1,2,1,1,2,1,B,"TEST"' . chr(13) . chr(10)),
-            array(1, 1, 270, 1, 1, 2, 1, true, 'TEST', true, BarCodeCommand::NAME . '1,1,3,1,1,2,1,B,"TEST"' . chr(13) . chr(10)),
-            array(1, 1, 0, 1, 1, 2, 1, true, 'TEST', true, BarCodeCommand::NAME . '1,1,0,1,1,2,1,B,"TEST"' . chr(13) . chr(10)),
-            array(1, 1, 0, 1, 1, 2, 1, true, 'TEST', null, BarCodeCommand::NAME . '1,1,0,1,1,2,1,B,"TEST"' . chr(13) . chr(10)),
-            array(1, 1, 0, 1, 1, 2, 1, true, 'TEST', false, BarCodeCommand::NAME . '1,1,0,1,1,2,1,B,"TEST"' . chr(13) . chr(10)),
-            array(1, 1, 0, 1, 1, 2, 1, false, 'TEST', true, BarCodeCommand::NAME . '1,1,0,1,1,2,1,N,"TEST"' . chr(13) . chr(10)),
-            array(1, 1, 0, 1, 1, 2, 1, false, 'TE\ST', true, BarCodeCommand::NAME . '1,1,0,1,1,2,1,N,"TE\\\\ST"' . chr(13) . chr(10)),
-            array(1, 1, 0, 1, 1, 2, 1, false, '"TEST"', true, BarCodeCommand::NAME . '1,1,0,1,1,2,1,N,"\"TEST\""' . chr(13) . chr(10)),
+            array(1, 1, 90, 1, 1, 2, 1, true, 'TEST', true, BarCodeCommand::NAME . '1,1,1,1,1,2,1,B,"TEST"' . chr(10)),
+            array(1, 1, 180, 1, 1, 2, 1, true, 'TEST', true, BarCodeCommand::NAME . '1,1,2,1,1,2,1,B,"TEST"' . chr(10)),
+            array(1, 1, 270, 1, 1, 2, 1, true, 'TEST', true, BarCodeCommand::NAME . '1,1,3,1,1,2,1,B,"TEST"' . chr(10)),
+            array(1, 1, 0, 1, 1, 2, 1, true, 'TEST', true, BarCodeCommand::NAME . '1,1,0,1,1,2,1,B,"TEST"' . chr(10)),
+            array(1, 1, 0, 1, 1, 2, 1, true, 'TEST', null, BarCodeCommand::NAME . '1,1,0,1,1,2,1,B,"TEST"' . chr(10)),
+            array(1, 1, 0, 1, 1, 2, 1, true, 'TEST', false, BarCodeCommand::NAME . '1,1,0,1,1,2,1,B,"TEST"' . chr(10)),
+            array(1, 1, 0, 1, 1, 2, 1, false, 'TEST', true, BarCodeCommand::NAME . '1,1,0,1,1,2,1,N,"TEST"' . chr(10)),
+            array(1, 1, 0, 1, 1, 2, 1, false, 'TE\ST', true, BarCodeCommand::NAME . '1,1,0,1,1,2,1,N,"TE\\\\ST"' . chr(10)),
+            array(1, 1, 0, 1, 1, 2, 1, false, '"TEST"', true, BarCodeCommand::NAME . '1,1,0,1,1,2,1,N,"\"TEST\""' . chr(10)),
         );
     }
 
