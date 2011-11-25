@@ -256,4 +256,17 @@ class CommandHelper implements CommandHelperInterface
         $this->getComposite()->addCommand($command);
         return $this;
     }
+
+    /**
+     * @param $numberOfLabels
+     * @param null $numberOfCopies
+     * @throws \Epl\ExceptionCommand
+     * @return CommandHelper
+     */
+    public function printAutomatic($numberOfLabels, $numberOfCopies = null)
+    {
+        $command = new Command\Form\PrintAutomaticCommand($numberOfLabels, $numberOfCopies);
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
 }

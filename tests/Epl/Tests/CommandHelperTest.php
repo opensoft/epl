@@ -38,7 +38,9 @@ class CommandTest extends \PHPUnit_Framework_TestCase
                 ->hardwareOption('C', 12)
                 ->hardwareOption('F', 'r')
                 ->printLabel(1)
-                ->printLabel(1, 1);
+                ->printLabel(1, 1)
+                ->printAutomatic(1)
+                ->printAutomatic(1, 1);
         $this->assertEquals('A1,1,1,1,1,1,N,"TEST"' . chr(10)
                           . 'B1,1,1,1,1,2,1,B,"TEST"' . chr(10)
                           . 'B1,1,0,RL,1,2,1,N,"\"123456789\""' . chr(10)
@@ -58,6 +60,8 @@ class CommandTest extends \PHPUnit_Framework_TestCase
                           . 'OFr' . chr(10)
                           . 'P1' . chr(10)
                           . 'P1,1' . chr(10)
+                          . 'PA1' . chr(10)
+                          . 'PA1,1' . chr(10)
 
                            , $command->toEplString());
     }
