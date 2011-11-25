@@ -44,7 +44,9 @@ class CommandTest extends \PHPUnit_Framework_TestCase
                 ->setFormWidth(10)
                 ->setFormLength(6, 24, 65535)
                 ->setFormLength(6, 20)
-                ->speed(10);
+                ->speed(10)
+                ->boxDraw(1, 1, 1, 1, 1)
+                ->commentLine('T;s\\S"T@');
         $this->assertEquals('A1,1,1,1,1,1,N,"TEST"' . chr(10)
                           . 'B1,1,1,1,1,2,1,B,"TEST"' . chr(10)
                           . 'B1,1,0,RL,1,2,1,N,"\"123456789\""' . chr(10)
@@ -70,6 +72,8 @@ class CommandTest extends \PHPUnit_Framework_TestCase
                           . 'Q6,24+65535' . chr(10)
                           . 'Q6,20' . chr(10)
                           . 'S10' . chr(10)
+                          . 'X1,1,1,1,1' . chr(10)
+                          . '; T;s\\S"T@' . chr(10)
 
                            , $command->toEplString());
     }

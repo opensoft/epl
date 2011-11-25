@@ -305,4 +305,32 @@ class CommandHelper implements CommandHelperInterface
         $this->getComposite()->addCommand($command);
         return $this;
     }
+
+    /**
+     * @param int $horizontalStartPosition
+     * @param int $verticalStartPosition
+     * @param int $lineThickness
+     * @param int $horizontalEndPosition
+     * @param int $verticalEndPosition
+     * @return CommandHelper
+     */
+    public function boxDraw($horizontalStartPosition, $verticalStartPosition, $lineThickness,
+                            $horizontalEndPosition, $verticalEndPosition)
+    {
+        $command = new Command\Image\BoxDrawCommand($horizontalStartPosition, $verticalStartPosition, $lineThickness,
+                                                    $horizontalEndPosition, $verticalEndPosition);
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
+
+    /**
+     * @param string $commentData
+     * @return CommandHelper
+     */
+    public function commentLine($commentData)
+    {
+        $command = new Command\Form\CommentLineCommand($commentData);
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
 }
