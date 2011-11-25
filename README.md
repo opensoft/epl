@@ -110,8 +110,8 @@ $loader->registerNamespaces(array(
 | JB
 | Disable Top Of Form Backup
 | Complete
-| Epl\Command\Stored\DisableTopOfFormCommand
-| disableTopOfFormCommand
+| Epl\Command\Stored\DisableTopOfFormBackupCommand
+| disableTopOfFormBackup
 |-
 | JC
 | Disable Top Of Form Backup - All Cases

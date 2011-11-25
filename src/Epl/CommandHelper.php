@@ -122,11 +122,22 @@ class CommandHelper implements CommandHelperInterface
      * @param int $numberOfDataBits
      * @param string $printerCodePage
      * @param string $KDUCountryCode
+     * @return \Epl\CommandHelper
      * @throws \Epl\ExceptionCommand
      */
     public function characterSetSelection($numberOfDataBits, $printerCodePage, $KDUCountryCode)
     {
         $command = new Command\Stored\CharacterSetSelectionCommand($numberOfDataBits, $printerCodePage, $KDUCountryCode);
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
+
+    /**
+     * @return CommandHelper
+     */
+    public function disableTopOfFormBackup()
+    {
+        $command = new Command\Stored\DisableTopOfFormBackupCommand();
         $this->getComposite()->addCommand($command);
         return $this;
     }
