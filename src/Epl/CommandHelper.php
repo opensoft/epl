@@ -32,4 +32,27 @@ class CommandHelper implements CommandHelperInterface
     {
         return $this->getComposite()->toEplString();
     }
+
+    /**
+     * @param int $horizontalStartPosition
+     * @param int $verticalStartPosition
+     * @param int $rotation
+     * @param int $fontSelection
+     * @param int $horizontalMultiplier
+     * @param int $verticalMultiplier
+     * @param bool $reverseImage
+     * @param string $data
+     * @param bool $convertRotation
+     * @param bool $asianFont
+     * @throw ExceptionCommand
+     */
+    public function asciiText($horizontalStartPosition, $verticalStartPosition, $rotation, $fontSelection,
+                              $horizontalMultiplier, $verticalMultiplier, $reverseImage, $data, $convertRotation = true,
+                              $asianFont = false)
+    {
+        $command = new Command\Image\AsciiTextCommand($horizontalStartPosition, $verticalStartPosition, $rotation, $fontSelection,
+                                                      $horizontalMultiplier, $verticalMultiplier, $reverseImage, $data,
+                                                      $convertRotation, $asianFont);
+        $this->getComposite()->addCommand($command);
+    }
 }
