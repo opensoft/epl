@@ -117,4 +117,17 @@ class CommandHelper implements CommandHelperInterface
         $this->getComposite()->addCommand($command);
         return $this;
     }
+
+    /**
+     * @param int $numberOfDataBits
+     * @param string $printerCodePage
+     * @param string $KDUCountryCode
+     * @throws \Epl\ExceptionCommand
+     */
+    public function characterSetSelection($numberOfDataBits, $printerCodePage, $KDUCountryCode)
+    {
+        $command = new Command\Stored\CharacterSetSelectionCommand($numberOfDataBits, $printerCodePage, $KDUCountryCode);
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
 }
