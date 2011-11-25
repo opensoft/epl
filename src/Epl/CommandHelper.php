@@ -294,4 +294,15 @@ class CommandHelper implements CommandHelperInterface
         $this->getComposite()->addCommand($command);
         return $this;
     }
+
+    /**
+     * @param int $speed
+     * @return CommandHelper
+     */
+    public function speed($speed)
+    {
+        $command = new Command\Stored\SpeedCommand($speed);
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
 }
