@@ -23,15 +23,15 @@ class Rss14BarCodeCommandTest extends \PHPUnit_Framework_TestCase
     public function providerToEplString()
     {
         return array(
-            array(1, 1, 90, 'R14', 1, 2, 1, true, 'TEST', true, 'B1,1,1,R14,1,2,1,B,"TEST"' . chr(10)),
-            array(1, 1, 180, 'R14', 1, 2, 1, true, 'TEST', true, 'B1,1,2,R14,1,2,1,B,"TEST"' . chr(10)),
-            array(1, 1, 270, 'R14', 1, 2, 1, true, 'TEST', true, 'B1,1,3,R14,1,2,1,B,"TEST"' . chr(10)),
-            array(1, 1, 0, 'RL', 1, 2, 1, true, 'TEST', true, 'B1,1,0,RL,1,2,1,B,"TEST"' . chr(10)),
-            array(1, 1, 0, 'RS', 1, 2, 1, true, 'TEST', null, 'B1,1,0,RS,1,2,1,B,"TEST"' . chr(10)),
-            array(1, 1, 0, 'RT', 1, 2, 1, true, 'TEST', false, 'B1,1,0,RT,1,2,1,B,"TEST"' . chr(10)),
-            array(1, 1, 0, 'RT', 1, 2, 1, false, 'TEST', true, 'B1,1,0,RT,1,2,1,N,"TEST"' . chr(10)),
+            array(1, 1, 90, 'R14', 1, 2, 1, true, '123456789', true, 'B1,1,1,R14,1,2,1,B,"123456789"' . chr(10)),
+            array(1, 1, 180, 'R14', 1, 2, 1, true, '123456789', true, 'B1,1,2,R14,1,2,1,B,"123456789"' . chr(10)),
+            array(1, 1, 270, 'R14', 1, 2, 1, true, '123456789', true, 'B1,1,3,R14,1,2,1,B,"123456789"' . chr(10)),
+            array(1, 1, 0, 'RL', 1, 2, 1, true, '123456789', true, 'B1,1,0,RL,1,2,1,B,"123456789"' . chr(10)),
+            array(1, 1, 0, 'RS', 1, 2, 1, true, '123456789', null, 'B1,1,0,RS,1,2,1,B,"123456789"' . chr(10)),
+            array(1, 1, 0, 'RT', 1, 2, 1, true, '123456789', false, 'B1,1,0,RT,1,2,1,B,"123456789"' . chr(10)),
+            array(1, 1, 0, 'RT', 1, 2, 1, false, '123456789', true, 'B1,1,0,RT,1,2,1,N,"123456789"' . chr(10)),
             array(1, 1, 0, 'RS', 1, 2, 1, false, 'TE\ST', true, 'B1,1,0,RS,1,2,1,N,"TE\\\\ST"' . chr(10)),
-            array(1, 1, 0, 'RL', 1, 2, 1, false, '"TEST"', true, 'B1,1,0,RL,1,2,1,N,"\"TEST\""' . chr(10)),
+            array(1, 1, 0, 'RL', 1, 2, 1, false, '"123456789"', true, 'B1,1,0,RL,1,2,1,N,"\"123456789\""' . chr(10)),
         );
     }
 
@@ -51,10 +51,10 @@ class Rss14BarCodeCommandTest extends \PHPUnit_Framework_TestCase
     public function providerToEplStringException()
     {
         return array(
-            array(1, 1, -90, 'RT', 1, 2, 1, true, 'TEST', true),
-            array(1, 1, 180, -21, 2, 2, 1, true, 'TEST', true),
-            array(1, 1, 270, 'RT', 22, 10, 1, true, 'TEST', true),
-            array(1, 1, 0, 'RT', 1, 1222, 122, true, 'TEST', true),
+            array(1, 1, -90, 'RT', 1, 2, 1, true, '123456789', true),
+            array(1, 1, 180, -21, 2, 2, 1, true, '123456789', true),
+            array(1, 1, 270, 'RT', 22, 10, 1, true, '123456789', true),
+            array(1, 1, 0, 'RT', 1, 1222, 122, true, '123456789', true),
         );
     }
 }
