@@ -151,4 +151,14 @@ class CommandHelper implements CommandHelperInterface
         $this->getComposite()->addCommand($command);
         return $this;
     }
+
+    /**
+     * @return CommandHelper
+     */
+    public function enableTopOfFormBackup()
+    {
+        $command = new Command\Stored\EnableTopOfFormBackupCommand();
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
 }
