@@ -34,6 +34,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Renders an ASCII text string to the image print buffer.
      * @param int $horizontalStartPosition
      * @param int $verticalStartPosition
      * @param int $rotation
@@ -61,6 +62,7 @@ class CommandHelper implements CommandHelperInterface
 
 
     /**
+     * Use this command to print standard bar codes
      * @param int $horizontalStartPosition
      * @param int $verticalStartPosition
      * @param int $rotation
@@ -85,6 +87,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Use this command to print RSS-14 bar code family bar codes for numeric data.
      * @param int $horizontalStartPosition
      * @param int $verticalStartPosition
      * @param int $rotation
@@ -108,6 +111,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Use this command to select the print density.
      * @param int $density
      * @return \Epl\CommandHelper
      */
@@ -119,6 +123,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Use this command to select the appropriate character set for printing (and KDU display)
      * @param int $numberOfDataBits
      * @param string $printerCodePage
      * @param string $KDUCountryCode
@@ -133,6 +138,8 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * his command disable the Top Of Form Backup feature when printing multiple labels.
+     * At power up, Top OF From Backup will be enabled.
      * @return CommandHelper
      */
     public function disableTopOfFormBackup()
@@ -143,6 +150,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * This command disables the Top Of Form Backup feature for all operations.
      * @return CommandHelper
      */
     public function disableTopOfFormBackupAllCases()
@@ -153,6 +161,9 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * This command enables the Top Of Form Backup feature and presents the last label of a batch print operation.
+     * Upon request initiating the printing of the next form (or batch), the last label backs up the Top Of Form before
+     * printing next label.
      * @return CommandHelper
      */
     public function enableTopOfFormBackup()
@@ -163,6 +174,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Use this command to draw lines with an "Exclusive OR" function.
      * @param int $horizontalStartPosition
      * @param int $verticalStartPosition
      * @param int $horizontalLength
@@ -177,6 +189,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Use this command to draw black lines, overwriting previous information.
      * @param int $horizontalStartPosition
      * @param int $verticalStartPosition
      * @param int $horizontalLength
@@ -191,6 +204,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Use this command to draw diagonal black lines, overwriting previous information.
      * @param int $horizontalStartPosition
      * @param int $verticalStartPosition
      * @param int $horizontalLength
@@ -208,6 +222,7 @@ class CommandHelper implements CommandHelperInterface
 
 
     /**
+     * Use this command to draw white lines, effectively erasing previous information.
      * @param int $horizontalStartPosition
      * @param int $verticalStartPosition
      * @param int $horizontalLength
@@ -222,6 +237,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Use this command clears the image buffer prior to building a new label image
      * @return CommandHelper
      */
     public function clearImageBuffer()
@@ -232,6 +248,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Use this command to select various printer options
      * @param string $option
      * @param null $additionalOption
      * @throws \Epl\ExceptionCommand
@@ -245,6 +262,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Use this command to print the contents of the image buffer
      * @param int $numberOfLabels
      * @param null|int $numberOfCopies
      * @throws \Epl\ExceptionCommand
@@ -258,6 +276,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Use this command in stored form sequence to automatically print the form (as soon as well variable data has been supplied).
      * @param $numberOfLabels
      * @param null $numberOfCopies
      * @throws \Epl\ExceptionCommand
@@ -271,6 +290,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Use this command to set the width of the printable area of teh media in dots.
      * @param int $width
      * @return CommandHelper
      */
@@ -282,6 +302,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Use this command to set the form and gap length or black line thickness when using the transmissive (gap) sensor,
      * @param int $labelLength
      * @param int $gapLength
      * @param int|null $offsetLength
@@ -296,6 +317,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Use this command to select the print speed.
      * @param int $speed
      * @return CommandHelper
      */
@@ -307,6 +329,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Use this command to draw a box shape.
      * @param int $horizontalStartPosition
      * @param int $verticalStartPosition
      * @param int $lineThickness
@@ -324,6 +347,7 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * This command signals the printer to ignore the following data.
      * @param string $commentData
      * @return CommandHelper
      */

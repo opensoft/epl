@@ -6,7 +6,7 @@ use Epl\CommandAbstract as Command;
 use Epl\ExceptionCommand;
 
 /**
- * Use this command to select various printer options/ Options available vary by printer configuration.
+ * Use this command to select various printer options. Options available vary by printer configuration.
  * Option selected and enabled in a printer can be verified by checking the printer configuration printout,
  * Dump Mode printer status label.
  * Mobile printers, such as the TR 220, ignore this command.
