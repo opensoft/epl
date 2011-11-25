@@ -220,4 +220,14 @@ class CommandHelper implements CommandHelperInterface
         $this->getComposite()->addCommand($command);
         return $this;
     }
+
+    /**
+     * @return CommandHelper
+     */
+    public function clearImageBuffer()
+    {
+        $command = new Command\Image\ClearImageBufferCommand();
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
 }

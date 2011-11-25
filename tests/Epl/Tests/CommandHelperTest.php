@@ -31,7 +31,8 @@ class CommandTest extends \PHPUnit_Framework_TestCase
                 ->lineDrawExclusiveOR(10, 10, 20, 200)
                 ->lineDrawBlack(10, 10, 20, 200)
                 ->lineDrawDiagonal(10, 10, 20, 200, 200)
-                ->lineDrawWhite(10, 10, 20, 200);
+                ->lineDrawWhite(10, 10, 20, 200)
+                ->clearImageBuffer();
         $this->assertEquals('A1,1,1,1,1,1,N,"TEST"' . chr(10)
                           . 'B1,1,1,1,1,2,1,B,"TEST"' . chr(10)
                           . 'B1,1,0,RL,1,2,1,N,"\"123456789\""' . chr(10)
@@ -44,6 +45,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
                           . 'LO10,10,20,200' . chr(10)
                           . 'LS10,10,20,200,200' . chr(10)
                           . 'LW10,10,20,200' . chr(10)
+                          . chr(10) . 'N' . chr(10)
 
                            , $command->toEplString());
     }
