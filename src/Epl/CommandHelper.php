@@ -106,4 +106,15 @@ class CommandHelper implements CommandHelperInterface
         $this->getComposite()->addCommand($command);
         return $this;
     }
+
+    /**
+     * @param int $density
+     * @return \Epl\CommandHelper
+     */
+    public function density($density)
+    {
+        $command = new Command\Stored\DensityCommand($density);
+        $this->getComposite()->addCommand($command);
+        return $this;
+    }
 }
