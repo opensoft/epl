@@ -1,11 +1,11 @@
 <?php
 
-namespace  Epl;
+namespace Epl;
 
 /**
  * @author Dmitry Petrov <dmitry.petrov@opensoftdev.ru>
  */
-final class CommandComposite implements CommandCompositeInterface, CommandInterface
+final class CommandComposite implements CommandCompositeInterface
 {
     /**
      * @var array|CommandInterface[]
@@ -46,5 +46,14 @@ final class CommandComposite implements CommandCompositeInterface, CommandInterf
             }
         }
         return $this->eplString;
+    }
+
+    /**
+     * @return CommandCompositeInterface
+     */
+    public function clearCommands()
+    {
+        $this->commands = array();
+        return $this;
     }
 }

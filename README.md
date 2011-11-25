@@ -4,23 +4,25 @@ The library is a php wrapper for the EPL2 Programming Language. At present do no
 
 <syntaxhighlight lang="php">
 <?php
-use Epl\Command\CommandComposite;
+use Epl\CommandComposite;
+use Epl\CommandHelper;
 
-$commandFacade = mew CommandComposite();
+$composite = new Composite();
+$commandHelper = mew CommandHelper($composite);
 //Draw new line
-$commandFacade->lineDrawBlack(50, 200, 400, 20);
+$commandHelper->lineDrawBlack(50, 200, 400, 20);
 //Draw other line
-$commandFacade->lineDrawBlack(200, 50, 20, 400);
+$commandHelper->lineDrawBlack(200, 50, 20, 400);
 //Print 1 label
-$commandFacade->print(1);
+$commandHelper->print(1);
 //Get EPL string
-$eplString = $commandFacade->toEplString();
+$eplString = $commandHelper->toEplString();
 </syntaxhighlight>
 
 
 To implement the commands necessary to implement Epl\CommandInterface.
 
-For convenience of use EPL commands there is a CommandComposite. It hides the implementation EPL commands.
+For convenience of use EPL commands there is a CommandHelper. It hides the implementation EPL commands.
 But you can direct way to instantiate the command.
 
 <syntaxhighlight lang="php">
@@ -28,10 +30,10 @@ But you can direct way to instantiate the command.
 use Epl\Command\PrintCommand;
 use Epl\Command\CommandComposite;
 
-$commandFacade = mew CommandComposite();
+$commandComposite = mew CommandComposite();
 $printCommand = new PrintCommand(1);
-$commandFacade->addCommand($printCommand);
-$eplString = $commandFacade->toEplString();
+$commandComposite->addCommand($printCommand);
+$eplString = $commandComposite->toEplString();
 </syntaxhighlight>
 
 
@@ -67,7 +69,7 @@ $loader->registerNamespaces(array(
 ! Description
 ! Status
 ! Class
-! Method
+! Helper Method
 |-
 | A
 | ASCII Text

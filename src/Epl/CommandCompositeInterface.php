@@ -5,7 +5,7 @@ namespace Epl;
 /**
  * @author Dmitry Petrov <dmitry.petrov@opensoftdev.ru>
  */
-interface CommandCompositeInterface
+interface CommandCompositeInterface extends CommandInterface
 {
     /**
      * @abstract
@@ -19,4 +19,10 @@ interface CommandCompositeInterface
      * @return CommandInterface[]
      */
     public function getCommands();
+
+    /**
+     * @abstract
+     * @return CommandCompositeInterface
+     */
+    public function clearCommands();
 }
