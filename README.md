@@ -2,7 +2,7 @@ The library is a php wrapper for the EPL2 Programming Language. At present do no
 
 ===Usage:===
 
-<syntaxhighlight lang="php">
+<code lang="php">
 <?php
 use Epl\CommandComposite;
 use Epl\CommandHelper;
@@ -17,7 +17,7 @@ $commandHelper->lineDrawBlack(200, 50, 20, 400);
 $commandHelper->print(1);
 //Get EPL string
 $eplString = $commandHelper->toEplString();
-</syntaxhighlight>
+</code>
 
 
 To implement the commands necessary to implement Epl\CommandInterface.
