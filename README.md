@@ -1,206 +1,204 @@
 The library is a php wrapper for the EPL2 Programming Language. At present do not support all commands EPL2.
 
-===Usage:===
+<h2>Usage:</h2>
 
-<code lang="php">
-<?php
+<pre>
+
+&lt;?php
 use Epl\CommandComposite;
 use Epl\CommandHelper;
 
 $composite = new Composite();
 $commandHelper = mew CommandHelper($composite);
 //Draw new line
-$commandHelper->lineDrawBlack(50, 200, 400, 20);
+$commandHelper-&gt;lineDrawBlack(50, 200, 400, 20);
 //Draw other line
-$commandHelper->lineDrawBlack(200, 50, 20, 400);
+$commandHelper-&gt;lineDrawBlack(200, 50, 20, 400);
 //Print 1 label
-$commandHelper->print(1);
+$commandHelper-&gt;print(1);
 //Get EPL string
-$eplString = $commandHelper->toEplString();
-</code>
+$eplString = $commandHelper-&gt;toEplString();
+</pre>
 
+<p>To implement the commands necessary to implement Epl\CommandInterface.</p>
 
-To implement the commands necessary to implement Epl\CommandInterface.
+<p>For convenience of use EPL commands there is a CommandHelper. It hides the implementation EPL commands.
+But you can direct way to instantiate the command.</p>
 
-For convenience of use EPL commands there is a CommandHelper. It hides the implementation EPL commands.
-But you can direct way to instantiate the command.
-
-<syntaxhighlight lang="php">
-<?php
+<pre>
+&lt;?php
 use Epl\Command\PrintCommand;
 use Epl\Command\CommandComposite;
 
 $commandComposite = mew CommandComposite();
 $printCommand = new PrintCommand(1);
-$commandComposite->addCommand($printCommand);
-$eplString = $commandComposite->toEplString();
-</syntaxhighlight>
+$commandComposite-&gt;addCommand($printCommand);
+$eplString = $commandComposite-&gt;toEplString();
+</pre>
 
+<h2>Installation on Symfony 2 project</h2>
+If you use a deps file, add:</p>
 
-===Installation on Symfony 2 project====
-If you use a deps file, add:
-
-<code>
+<pre>
 [epl]
     git=http://github.com/opensoft/epl.git
+</pre>
 
-</code>
+<p>Or if you want to clone the repos:</p>
 
-Or if you want to clone the repos:
-
-<code>
+<pre>
 git clone git://github.com/opensoft/epl.git vendor/epl
-</code>
+</pre>
 
-Add the namespace to your autoloader
+<p>Add the namespace to your autoloader</p>
 
-<syntaxhighlight lang="php">
-$loader->registerNamespaces(array(
+<pre>
+$loader-&gt;registerNamespaces(array(
     ............
-    'Epl'   => __DIR__.'/../vendor/epl/src',
+    'Epl'   =&gt; <strong>DIR</strong>.'/../vendor/epl/src',
     ...........
 ));
-</syntaxhighlight>
+</pre>
 
-===List of commands===
-{| class="wikitable"
-|-
-! EPL
-! Description
-! Status
-! Class
-! Helper Method
-|-
-| A
-| ASCII Text
-| Partial
-| Epl\Command\Image\AsciiTextCommand
-| asciiText
-|-
-| AUTOFR
-| Automatic Form Printing
-| Not implemented
-|
-|
-|-
-| B
-| Bar Code
-| Complete
-| Epl\Command\Image\BarCodeCommand
-| barCode
-|-
-| B
-| RSS-14 Bar Code
-| Complete
-| Epl\Command\Image\Rss14BarCodeCommand
-| rss14BarCode
-|-
-| D
-| Density
-| Complete
-| Epl\Command\Stored\DensityCommand
-| density
-|-
-| I
-| Character Set Selection
-| Complete
-| Epl\Command\Stored\CharacterSetSelectionCommand
-| characterSetSelection
-|-
-| JB
-| Disable Top Of Form Backup
-| Complete
-| Epl\Command\Stored\DisableTopOfFormBackupCommand
-| disableTopOfFormBackup
-|-
-| JC
-| Disable Top Of Form Backup - All Cases
-| Complete
-| Epl\Command\Stored\DisableTopOfFormBackupAllCasesCommand
-| disableTopOfFormBackupAllCases
-|-
-| JF
-| Enable Top Of Form Backup
-| Complete
-| Epl\Command\Stored\EnableTopOfFormBackupCommand
-| enableTopOfFormBackup
-|-
-| LE
-| Line Draw Exclusive OR
-| Complete
-| Epl\Command\Image\LineDrawExclusiveORCommand
-| lineDrawExclusiveOR
-|-
-| LO
-| Line draw black
-| Complete
-| Epl\Command\Image\LineDrawBlackCommand
-| lineDrawBlack
-|-
-| LS
-| Line draw diagonal
-| Complete
-| Epl\Command\Image\LineDrawDiagonalCommand
-| lineDrawDiagonal
-|-
-| LW
-| Line draw white
-| Complete
-| Epl\Command\Image\LineDrawWhiteCommand
-| lineDrawWhite
-|-
-| N
-| Clear Image Buffer
-| Complete
-| Epl\Command\Image\ClearImageBufferCommand
-| clearImageBuffer
-|-
-| O
-| Options Select
-| Complete
-| Epl\Command\Stored\HardwareOptionCommand
-| hardwareOption
-|-
-| P
-| Print
-| Complete
-| Epl\Command\PrintCommand
-| printLabel
-|-
-| PA
-| Print Automatic
-| Complete
-| Epl\Command\Form\PrintAutomaticCommand
-| printAutomatic
-|-
-| q
-| Set Form Width
-| Complete
-| Epl\Command\Stored\SetFormWidthCommand
-| setFormWidth
-|-
-| Q
-| Set Form Length
-| Complete
-| Epl\Command\Stored\SetFormLengthCommand
-| setFormLength
-|-
-| S
-| Speed Select
-| Complete
-| Epl\Command\Stored\SpeedCommand
-| speed
-|-
-| X
-| Box Draw
-| Complete
-| Epl\Command\Image\BoxDrawCommand
-| boxDraw
-|-
-| ;
-| Code comment line
-| Complete
-| Epl\Command\Form\CommentLineCommand
-| commentLine
-|}
-
+<h2>List of commands</h2>
+<table>
+  <tr>
+<th>EPL</th>
+<th>Description</th>
+<th>Status</th>
+<th>Class</th>
+<th>Helper Method</th>
+</tr><tr>
+<td> A </td>
+<td> ASCII Text </td>
+<td> Partial </td>
+<td> Epl\Command\Image\AsciiTextCommand </td>
+<td> asciiText </td>
+</tr><tr>
+<td> AUTOFR </td>
+<td> Automatic Form Printing </td>
+<td> Not implemented </td>
+<td> </td>
+<td> </td>
+</tr><tr>
+<td> B </td>
+<td> Bar Code </td>
+<td> Complete </td>
+<td> Epl\Command\Image\BarCodeCommand </td>
+<td> barCode </td>
+</tr><tr>
+<td> B </td>
+<td> RSS-14 Bar Code </td>
+<td> Complete </td>
+<td> Epl\Command\Image\Rss14BarCodeCommand </td>
+<td> rss14BarCode </td>
+</tr><tr>
+<td> D </td>
+<td> Density </td>
+<td> Complete </td>
+<td> Epl\Command\Stored\DensityCommand </td>
+<td> density </td>
+</tr><tr>
+<td> I </td>
+<td> Character Set Selection </td>
+<td> Complete </td>
+<td> Epl\Command\Stored\CharacterSetSelectionCommand </td>
+<td> characterSetSelection </td>
+</tr><tr>
+<td> JB </td>
+<td> Disable Top Of Form Backup </td>
+<td> Complete </td>
+<td> Epl\Command\Stored\DisableTopOfFormBackupCommand </td>
+<td> disableTopOfFormBackup </td>
+</tr><tr>
+<td> JC </td>
+<td> Disable Top Of Form Backup - All Cases </td>
+<td> Complete </td>
+<td> Epl\Command\Stored\DisableTopOfFormBackupAllCasesCommand </td>
+<td> disableTopOfFormBackupAllCases </td>
+</tr><tr>
+<td> JF </td>
+<td> Enable Top Of Form Backup </td>
+<td> Complete </td>
+<td> Epl\Command\Stored\EnableTopOfFormBackupCommand </td>
+<td> enableTopOfFormBackup </td>
+</tr><tr>
+<td> LE </td>
+<td> Line Draw Exclusive OR </td>
+<td> Complete </td>
+<td> Epl\Command\Image\LineDrawExclusiveORCommand </td>
+<td> lineDrawExclusiveOR </td>
+</tr><tr>
+<td> LO </td>
+<td> Line draw black </td>
+<td> Complete </td>
+<td> Epl\Command\Image\LineDrawBlackCommand </td>
+<td> lineDrawBlack </td>
+</tr><tr>
+<td> LS </td>
+<td> Line draw diagonal </td>
+<td> Complete </td>
+<td> Epl\Command\Image\LineDrawDiagonalCommand </td>
+<td> lineDrawDiagonal </td>
+</tr><tr>
+<td> LW </td>
+<td> Line draw white </td>
+<td> Complete </td>
+<td> Epl\Command\Image\LineDrawWhiteCommand </td>
+<td> lineDrawWhite </td>
+</tr><tr>
+<td> N </td>
+<td> Clear Image Buffer </td>
+<td> Complete </td>
+<td> Epl\Command\Image\ClearImageBufferCommand </td>
+<td> clearImageBuffer </td>
+</tr><tr>
+<td> O </td>
+<td> Options Select </td>
+<td> Complete </td>
+<td> Epl\Command\Stored\HardwareOptionCommand </td>
+<td> hardwareOption </td>
+</tr><tr>
+<td> P </td>
+<td> Print </td>
+<td> Complete </td>
+<td> Epl\Command\PrintCommand </td>
+<td> printLabel </td>
+</tr><tr>
+<td> PA </td>
+<td> Print Automatic </td>
+<td> Complete </td>
+<td> Epl\Command\Form\PrintAutomaticCommand </td>
+<td> printAutomatic </td>
+</tr><tr>
+<td> q </td>
+<td> Set Form Width </td>
+<td> Complete </td>
+<td> Epl\Command\Stored\SetFormWidthCommand </td>
+<td> setFormWidth </td>
+</tr><tr>
+<td> Q </td>
+<td> Set Form Length </td>
+<td> Complete </td>
+<td> Epl\Command\Stored\SetFormLengthCommand </td>
+<td> setFormLength </td>
+</tr><tr>
+<td> S </td>
+<td> Speed Select </td>
+<td> Complete </td>
+<td> Epl\Command\Stored\SpeedCommand </td>
+<td> speed </td>
+</tr><tr>
+<td> X </td>
+<td> Box Draw </td>
+<td> Complete </td>
+<td> Epl\Command\Image\BoxDrawCommand </td>
+<td> boxDraw </td>
+</tr><tr>
+<td> ; </td>
+<td> Code comment line </td>
+<td> Complete </td>
+<td> Epl\Command\Form\CommentLineCommand </td>
+<td> commentLine </td>
+</tr>
+</table>
