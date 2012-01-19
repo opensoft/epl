@@ -40,5 +40,6 @@ class CommandCompositeTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(chr(10) . 'N' . chr(10) . 'S1' . chr(10) . 'P1' . chr(10), $command->toEplString());
         $command->clearCommands();
         $this->assertEquals(0, count($command->getCommands()));
+        $this->assertNull($command->toEplString());
     }
 }

@@ -54,6 +54,7 @@ final class CommandComposite implements CommandCompositeInterface
     public function clearCommands()
     {
         $this->commands = array();
+        $this->eplString = null;
         return $this;
     }
 }
