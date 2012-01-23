@@ -32,6 +32,8 @@ class DensityCommand extends Command
 
     /**
      * @param int $density
+     *
+     * @throws \Epl\ExceptionCommand
      */
     public function __construct($density)
     {
