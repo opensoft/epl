@@ -13,11 +13,6 @@ final class CommandComposite implements CommandCompositeInterface
     protected $commands = array();
 
     /**
-     * @var null|string
-     */
-    protected $eplString = null;
-
-    /**
      * @param CommandInterface $command
      * @return \Epl\CommandComposite
      */
@@ -40,12 +35,13 @@ final class CommandComposite implements CommandCompositeInterface
      */
     public function toEplString()
     {
+        $eplString = null;
         if (! empty($this->commands)) {
             foreach ($this->getCommands() as $command) {
-                $this->eplString .= $command->toEplString();
+                $eplString .= $command->toEplString();
             }
         }
-        return $this->eplString;
+        return $eplString;
     }
 
     /**
@@ -54,7 +50,6 @@ final class CommandComposite implements CommandCompositeInterface
     public function clearCommands()
     {
         $this->commands = array();
-        $this->eplString = null;
         return $this;
     }
 }
