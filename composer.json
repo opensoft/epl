@@ -1,0 +1,22 @@
+{
+    "name": "opensoft/epl",
+    "type": "library",
+    "description": "The library is a php wrapper for the EPL2 Programming Language. At present do not support all commands EPL2.",
+    "keywords": ["epl2","epl", "php"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitry Petrov",
+            "email": "dmitry.petrov@opensoftdev.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "Epl": "src"
+        }
+    }
+}

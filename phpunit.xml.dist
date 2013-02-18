@@ -13,7 +13,7 @@
 >
     <testsuites>
         <testsuite name="EPL Test Suite">
-            <directory>./tests/epl/</directory>
+            <directory>./tests/Epl/Tests</directory>
         </testsuite>
     </testsuites>
 

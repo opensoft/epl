@@ -1,5 +1,7 @@
 The library is a php wrapper for the EPL2 Programming Language. At present do not support all commands EPL2.
 
+[![Build Status](https://travis-ci.org/opensoft/epl.png?branch=master)](https://travis-ci.org/opensoft/epl)
+
 <h2>Usage:</h2>
 
 <pre>
@@ -35,6 +37,10 @@ $printCommand = new PrintCommand(1);
 $commandComposite-&gt;addCommand($printCommand);
 $eplString = $commandComposite-&gt;toEplString();
 </pre>
+
+<h2>Installation</h2>
+
+```php composer.phar require opensoft/epl```
 
 <h2>Installation on Symfony 2 project</h2>
 If you use a deps file, add:</p>
