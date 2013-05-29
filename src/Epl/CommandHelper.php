@@ -53,8 +53,8 @@ class CommandHelper implements CommandHelperInterface
                               $asianFont = false)
     {
         $command = new Command\Image\AsciiTextCommand($horizontalStartPosition, $verticalStartPosition, $rotation, $fontSelection,
-                                                      $horizontalMultiplier, $verticalMultiplier, $reverseImage, $data,
-                                                      $convertRotation, $asianFont);
+            $horizontalMultiplier, $verticalMultiplier, $reverseImage, $data,
+            $convertRotation, $asianFont);
         $this->getComposite()->addCommand($command);
         return $this;
     }
@@ -80,9 +80,30 @@ class CommandHelper implements CommandHelperInterface
                             $narrowBarWidth, $wideBarWidth, $barCodeHeight, $printHumanReadable, $data, $convertRotation = true)
     {
         $command = new Command\Image\BarCodeCommand($horizontalStartPosition, $verticalStartPosition, $rotation, $barCodeSelection,
-                                                      $narrowBarWidth, $wideBarWidth, $barCodeHeight, $printHumanReadable,
-                                                      $data, $convertRotation);
+            $narrowBarWidth, $wideBarWidth, $barCodeHeight, $printHumanReadable,
+            $data, $convertRotation);
         $this->getComposite()->addCommand($command);
+        return $this;
+    }
+
+    /**
+     * @param integer $horizontalStartPosition
+     * @param integer $verticalStartPosition
+     * @param string $data
+     * @param integer $minSquareSize
+     * @param integer|null $columnsToEncode
+     * @param integer|null $rowsToEncode
+     * @param string|null $inverseImage
+     * @param string $barCodeSelection
+     * @return \Epl\CommandHelper
+     */
+    public function dataMatrixBarCode($horizontalStartPosition, $verticalStartPosition, $data, $minSquareSize = 5,
+                                      $columnsToEncode = null, $rowsToEncode = null, $inverseImage = null, $barCodeSelection = 'D')
+    {
+        $command = new Command\Image\DataMatrixBarCodeCommand($horizontalStartPosition, $verticalStartPosition, $data, $barCodeSelection,
+            $minSquareSize, $columnsToEncode, $rowsToEncode, $inverseImage);
+        $this->getComposite()->addCommand($command);
+
         return $this;
     }
 
@@ -105,7 +126,7 @@ class CommandHelper implements CommandHelperInterface
                                  $narrowBarWidth, $wideBarWidth, $barCodeHeight, $printHumanReadable, $data, $convertRotation = true)
     {
         $command = new Command\Image\Rss14BarCodeCommand($horizontalStartPosition, $verticalStartPosition, $rotation, $barCodeSelection,
-                                                         $narrowBarWidth, $wideBarWidth, $barCodeHeight, $printHumanReadable, $data, $convertRotation);
+            $narrowBarWidth, $wideBarWidth, $barCodeHeight, $printHumanReadable, $data, $convertRotation);
         $this->getComposite()->addCommand($command);
         return $this;
     }
@@ -341,7 +362,7 @@ class CommandHelper implements CommandHelperInterface
                             $horizontalEndPosition, $verticalEndPosition)
     {
         $command = new Command\Image\BoxDrawCommand($horizontalStartPosition, $verticalStartPosition, $lineThickness,
-                                                    $horizontalEndPosition, $verticalEndPosition);
+            $horizontalEndPosition, $verticalEndPosition);
         $this->getComposite()->addCommand($command);
         return $this;
     }
