@@ -99,6 +99,12 @@ $loader-&gt;registerNamespaces(array(
 <td> Epl\Command\Image\Rss14BarCodeCommand </td>
 <td> rss14BarCode </td>
 </tr><tr>
+<td> b </td>
+<td> 2D Data Matrix Bar Code </td>
+<td> Complete </td>
+<td> Epl\Command\Image\DataMatrixBarCodeCommand </td>
+<td> dataMatrixBarCode </td>
+</tr><tr>
 <td> D </td>
 <td> Density </td>
 <td> Complete </td>
