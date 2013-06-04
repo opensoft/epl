@@ -29,7 +29,7 @@ class DataMatrixBarCodeCommandTest extends \PHPUnit_Framework_TestCase
             array(3, 3, 'TEST', 'D', 10, 1, 2, null, 'b3,3,D,c1,r2,h10,"TEST"' . chr(10)),
             array(2, 1, 'TEST', 'D', 5, null, null, 1, 'b2,1,D,h5,v1,"TEST"' . chr(10)),
             array(3, 3, 'TEST', 'D', 10, 1, 2, 1, 'b3,3,D,c1,r2,h10,v1,"TEST"' . chr(10)),
-            array(2, 1, 'TE\ST', 'D', 5, null, null, 1, 'b2,1,D,h5,v1,"TE\\ST"' . chr(10)),
+            array(2, 1, 'TE\ST', 'D', 5, null, null, 1, 'b2,1,D,h5,v1,"TE\\\\ST"' . chr(10)),
             array(2, 1, '"TEST"', 'D', 5, null, null, 1, 'b2,1,D,h5,v1,"\"TEST\""' . chr(10))
         );
     }

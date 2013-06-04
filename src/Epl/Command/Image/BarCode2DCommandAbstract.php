@@ -56,7 +56,7 @@ abstract class BarCode2DCommandAbstract extends Command
      */
     protected function escapeData($data)
     {
-        return str_replace('"', '\"', $data);
+        return str_replace(array('\\', '"'), array('\\\\', '\"'), $data);
     }
 
     /**
