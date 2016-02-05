@@ -207,6 +207,12 @@ $loader-&gt;registerNamespaces(array(
 <td> Epl\Command\Image\BoxDrawCommand </td>
 <td> boxDraw </td>
 </tr><tr>
+<td> GW </td>
+<td> Direct Graphic Write </td>
+<td> Complete </td>
+<td> Epl\Command\Image\GraphicWriteCommand </td>
+<td> graphicWrite </td>
+</tr><tr>
 <td> ; </td>
 <td> Code comment line </td>
 <td> Complete </td>
