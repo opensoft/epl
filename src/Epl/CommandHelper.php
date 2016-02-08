@@ -368,6 +368,37 @@ class CommandHelper implements CommandHelperInterface
     }
 
     /**
+     * Loads binary graphic data directly into the Image Buffer memory for immediate printing.
+     *
+     * @param integer $horizontalStartPosition
+     * @param integer $verticalStartPosition
+     * @param integer $width
+     * @param integer $height
+     * @param string $data
+     *
+     * @return CommandHelper
+     */
+    public function graphicWrite(
+        $horizontalStartPosition,
+        $verticalStartPosition,
+        $width,
+        $height,
+        $data
+    ) {
+        $command = new Command\Image\GraphicWriteCommand(
+            $horizontalStartPosition,
+            $verticalStartPosition,
+            $width,
+            $height,
+            $data
+        );
+
+        $this->getComposite()->addCommand($command);
+
+        return $this;
+    }
+
+    /**
      * This command signals the printer to ignore the following data.
      * @param string $commentData
      * @return CommandHelper

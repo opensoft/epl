@@ -101,4 +101,21 @@ class ExceptionCommand extends \Exception
     {
         return new self ($additionalOption . ' is invalid hardware additional optional for feed settings');
     }
+
+    /**
+     * @static
+     *
+     * @param integer $actualDataSize in bytes
+     * @param integer $expectedDataSize in bytes
+     *
+     * @return ExceptionCommand
+     */
+    public static function invalidDataSize($actualDataSize, $expectedDataSize)
+    {
+        return new self(sprintf(
+                'Invalid data size. Expected size is %s bytes. Actual size is %s bytes.',
+                $expectedDataSize,
+                $actualDataSize)
+        );
+    }
 }
