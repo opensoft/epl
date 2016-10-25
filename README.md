@@ -11,7 +11,7 @@ use Epl\CommandComposite;
 use Epl\CommandHelper;
 
 $composite = new Composite();
-$commandHelper = mew CommandHelper($composite);
+$commandHelper = new CommandHelper($composite);
 //Draw new line
 $commandHelper-&gt;lineDrawBlack(50, 200, 400, 20);
 //Draw other line
@@ -32,7 +32,7 @@ But you can direct way to instantiate the command.</p>
 use Epl\Command\PrintCommand;
 use Epl\Command\CommandComposite;
 
-$commandComposite = mew CommandComposite();
+$commandComposite = new CommandComposite();
 $printCommand = new PrintCommand(1);
 $commandComposite-&gt;addCommand($printCommand);
 $eplString = $commandComposite-&gt;toEplString();
